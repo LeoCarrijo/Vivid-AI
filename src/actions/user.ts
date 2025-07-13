@@ -38,7 +38,7 @@ export const onAuthenticateUser = async () => {
         if (newUser) {
             return {status: 201, user: newUser}
         }
-        return {status: 404}
+        return {status: 400}
     } catch (error) {
         console.log('🔴 ERROR', error)
         return {status: 500, error: "Internal server error"}
