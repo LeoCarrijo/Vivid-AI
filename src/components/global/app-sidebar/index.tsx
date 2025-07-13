@@ -46,7 +46,7 @@ function AppSidebar({ recentProjects, user, ...props }: {
                 <RecentOpen recentProjects={recentProjects} />
             </SidebarContent>
             <SidebarFooter>
-                {/* <NavFooter /> */}
+                <NavFooter prismaUser={user} />
             </SidebarFooter>
         </Sidebar>
     )

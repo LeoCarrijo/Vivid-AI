@@ -1,8 +1,8 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar'
-import { useUser } from '@clerk/nextjs'
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
+import { SignedIn, UserButton, useUser } from '@clerk/nextjs'
 import { User } from '@prisma/client'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -21,7 +21,7 @@ function NavFooter({ prismaUser }: { prismaUser: User }) {
             <SidebarMenuItem>
                 <div className='flex flex-col gap-y-6 items-start group-data-[collapsible=icon]:hidden'>
                     {!prismaUser.subscription && (
-                        <div className='flex flex-col items-start p-2 pb-3 gap-4 bg-background-80'>
+                        <div className='flex flex-col items-start p-2 pb-3 gap-4 bg-background-80 rounded-xl'>
                             <div className='flex flex-col items-start gap-1'>
                                 <p className='text-base font-bold'>
                                     Get <span className='text-vivid'>Creative AI</span>
@@ -40,6 +40,18 @@ function NavFooter({ prismaUser }: { prismaUser: User }) {
                             </div>
                         </div>
                     )}
+                    <SignedIn>
+                        <SidebarMenuButton
+                            size={'lg'}
+                            className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+                        >
+                            <UserButton />
+                            <div className='grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden'>
+                                <span className='truncate'>{user?.fullName}</span>
+                                <span className='truncate text-secondary'>{user?.emailAddresses[0]?.emailAddress}</span>
+                            </div>
+                        </SidebarMenuButton>
+                    </SignedIn>
                 </div>
             </SidebarMenuItem>
         </SidebarMenu>
