@@ -10,11 +10,23 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			background: 'hsl(var(--background))',
+			colors: {
+				'creative-ai-gradient': 'var(--Project-Color-Styles-CreativeAI-Gradient, #F55C7A)'
+			},
+			background: {
+				DEFAULT: 'hsl(var(--background))',
+				primary: 'hsl(var(--background-primary))',
+				90: 'hsl(var(--background-90))',
+				80: 'hsl(var(--background-80))',
+				70: 'hsl(var(--background-70))',
+				25: 'hsl(var(--background-25))',
+				20: 'hsl(var(--background-20))',
+			},
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				foreground: 'hsl(var(--card-foreground))',
+				'primary-80': 'hsl(var(--primary-80))'
   			},
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
@@ -22,11 +34,16 @@ export default {
   			},
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				foreground: 'hsl(var(--primary-foreground))',
+				10: 'hsl(var(--primary-10))',
+				20: 'hsl(var(--primary-20))',
+				80: 'hsl(var(--primary-80))',
+				90: 'hsl(var(--primary-90))',
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
+  				foreground: 'hsl(var(--secondary-foreground))',
+				90: 'hsl(var(--secondary-90))'
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
@@ -61,6 +78,9 @@ export default {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
+		backgroundImage: {
+			'vivid-gradient': 'var( --creative-ai-gradient)'
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
